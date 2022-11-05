@@ -2,8 +2,7 @@ import { intervalToDuration } from "date-fns";
 
 type Age = { years: number; months: number; days: number };
 
-export function calculateAge(): Age {
-  const now = Date.now();
+export function calculateAge(now: number = Date.now()): Age {
   const java = 1395097200000;
   const { years, months, days } = intervalToDuration({
     start: java,
@@ -18,14 +17,29 @@ export function calculateAge(): Age {
 
 export function formatAgeText(
   { years, months, days }: Age,
+  today: Date = new Date(),
 ): string {
-  let text = "Java 8 is ";
+
+  let prefix = "";
+  // Check for new year
+  if (today.getUTCMonth() == 0 && today.getUTCDate() == 1) {
+    prefix = "Happy New Year! 🎉\n";
+  }
+
+  // Check for pride month
+  if (today.getUTCMonth() == 5 && today.getUTCDate() == 1) {
+    prefix = "Happy Pride Month! 🏳️‍🌈\n";
+  }
+
+  let text = prefix + "Java 8 is ";
 
   if (years > 0) {
     addPluralization("one year", "years", years);
   }
   if (months > 0) {
-    addSeparator(days <= 0);
+    if (years > 0) {
+      addSeparator(days <= 0);
+    }
     addPluralization("one month", "months", months);
   }
   if (days > 0) {

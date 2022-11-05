@@ -1,5 +1,6 @@
 *.env
 node_modules
 dist
-
 .vercel
+coverage
+.vscode/launch.json
