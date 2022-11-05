@@ -1,0 +1,24 @@
+name: Schedule Tweet
+on:
+  push:
+  pull_request:
+jobs:
+  tweet:
+    name: Publish Tweet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          cache: "pnpm"
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck Code
+        run: pnpm tsc --noEmit
+      - name: Run Tests
+        run: pnpm test
