@@ -17,8 +17,7 @@ export async function createTweet() {
   console.log(`Logged in as ${user.name}`);
 
   const tweet = await twitterClient.v1.tweet(text);
-  // This url is prob. wrong because of js fucking up floating point numbers.
-  console.log(`Created a new Tweet: https://twitter.com/${user.screen_name}/status/${tweet.id}`);
+  console.log(`Created a new Tweet: https://twitter.com/${user.screen_name}/status/${tweet.id_str}`);
   function getEnvVar(name: string): string {
     const variable = process.env[name]
     if (!variable) {
