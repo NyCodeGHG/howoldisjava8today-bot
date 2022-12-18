@@ -1,28 +1,16 @@
 import { TwitterApi } from "twitter-api-v2";
-import { calculateAge, formatAgeText } from "./age.js";
+import { env } from "./env.js";
 
-export async function createTweet() {
-  const age = calculateAge();
-  const text = formatAgeText(age);
-  console.log(text);
+const twitterClient = new TwitterApi({
+    appKey: env.TWITTER_APP_KEY,
+    appSecret: env.TWITTER_APP_SECRET,
+    accessToken: env.TWITTER_ACCESS_TOKEN,
+    accessSecret: env.TWITTER_ACCESS_TOKEN_SECRET,
+});
 
-  const twitterClient = new TwitterApi({
-    appKey: getEnvVar("TWITTER_APP_KEY"),
-    appSecret: getEnvVar("TWITTER_APP_SECRET"),
-    accessToken: getEnvVar("TWITTER_ACCESS_TOKEN"),
-    accessSecret: getEnvVar("TWITTER_ACCESS_TOKEN_SECRET"),
-  });
-
-  const user = await twitterClient.currentUser();
-  console.log(`Logged in as ${user.name}`);
-
-  const tweet = await twitterClient.v1.tweet(text);
-  console.log(`Created a new Tweet: https://twitter.com/${user.screen_name}/status/${tweet.id_str}`);
-  function getEnvVar(name: string): string {
-    const variable = process.env[name]
-    if (!variable) {
-      throw `${variable} is not set!`;
-    }
-    return variable;
-  }
+export async function createTweet(text: string) {
+    const user = await twitterClient.currentUser();
+    const tweet = await twitterClient.v1.tweet(text);
+    console.log(`Created a new Tweet: https://twitter.com/${user.screen_name}/status/${tweet.id_str}`);
 }
+

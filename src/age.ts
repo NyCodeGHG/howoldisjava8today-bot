@@ -1,6 +1,6 @@
 import { intervalToDuration } from "date-fns";
 
-type Age = { years: number; months: number; days: number };
+export type Age = { years: number; months: number; days: number };
 
 export function calculateAge(now: number = Date.now()): Age {
   const java = 1395097200000;

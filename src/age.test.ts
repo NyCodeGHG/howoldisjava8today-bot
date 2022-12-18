@@ -14,6 +14,9 @@ describe('age', () => {
   it("should show a special text on pride month", () => {
     expect(formatAgeText({ years: 4, months: 2, days: 0 }, new Date("2022-06-01T00:00:00+00:00"))).toBe("Happy Pride Month! 🏳️‍🌈\nJava 8 is 4 years and 2 months old today")
   });
+  it("should show the regular text on second day", () => {
+    expect(formatAgeText({ years: 4, months: 2, days: 0 }, new Date("2022-06-02T00:00:00+00:00"))).toBe("Java 8 is 4 years and 2 months old today")
+  });
   it("should calculate age correct", () => {
     expect(calculateAge(1667684420792)).toEqual({
       years: 8,
