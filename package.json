@@ -8,7 +8,7 @@
     "coverage": "vitest run --coverage"
   },
   "type": "module",
-  "packageManager": "pnpm@7.18.2",
+  "packageManager": "pnpm@7.19.0",
   "dependencies": {
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
