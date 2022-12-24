@@ -12,14 +12,13 @@ export function calculateAge(now: number = Date.now()): Age {
     years: years ?? 0,
     months: months ?? 0,
     days: days ?? 0,
-  }
+  };
 }
 
 export function formatAgeText(
   { years, months, days }: Age,
-  today: Date = new Date(),
+  today: Date = new Date()
 ): string {
-
   let prefix = "";
   // Check for new year
   if (today.getUTCMonth() == 0 && today.getUTCDate() == 1) {

@@ -1,9 +1,10 @@
-{ "extends": "@tsconfig/node16/tsconfig.json",
-    "compilerOptions": {
-        "module": "ESNext",
-        "target": "ESNext",
-        "strict": true,
-        "rootDir": "src",
-        "outDir": "dist"
-    }
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "dist"
+  }
 }

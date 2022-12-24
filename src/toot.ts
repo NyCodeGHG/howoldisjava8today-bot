@@ -15,4 +15,3 @@ export async function createToot(text: string) {
   });
   console.log("Created a new Toot: ", toot.uri);
 }
-

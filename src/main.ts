@@ -5,4 +5,3 @@ import { createTweet } from "./tweet.js";
 const age = calculateAge();
 const text = formatAgeText(age);
 await Promise.allSettled([createTweet(text), createToot(text)]);
-
