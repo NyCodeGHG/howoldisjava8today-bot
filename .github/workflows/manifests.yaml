@@ -1,13 +1,14 @@
 name: "Kubernetes Manifests"
 on:
   release:
+    types: [published]
 
 concurrency: release-manifests-${{ github.ref }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build Docker Image
+    name: Build Kubernetes Manifests
     steps:
       - name: Fetch Sources
         uses: actions/checkout@v3
