@@ -1,18 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { calculateAge, formatAgeText } from "./age.js";
 
+const date = new Date(2022, 4, 17);
+
 describe("age", () => {
   it("should calculate the correct text", () => {
-    expect(formatAgeText({ years: 2, months: 2, days: 2 })).toBe(
+    expect(formatAgeText({ years: 2, months: 2, days: 2 }, date)).toBe(
       "Java 8 is 2 years, 2 months and 2 days old today"
     );
-    expect(formatAgeText({ years: 1, months: 2, days: 2 })).toBe(
+    expect(formatAgeText({ years: 1, months: 2, days: 2 }, date)).toBe(
       "Java 8 is one year, 2 months and 2 days old today"
     );
-    expect(formatAgeText({ years: 0, months: 2, days: 2 })).toBe(
+    expect(formatAgeText({ years: 0, months: 2, days: 2 }, date)).toBe(
       "Java 8 is 2 months and 2 days old today"
     );
-    expect(formatAgeText({ years: 2, months: 0, days: 1 })).toBe(
+    expect(formatAgeText({ years: 2, months: 0, days: 1 }, date)).toBe(
       "Java 8 is 2 years and one day old today"
     );
   });
