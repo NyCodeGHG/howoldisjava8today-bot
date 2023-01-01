@@ -1,7 +1,7 @@
 name: "Kubernetes Manifests"
 on:
   release:
-    types: [published]
+    types: [created]
 
 concurrency: release-manifests-${{ github.ref }}
 

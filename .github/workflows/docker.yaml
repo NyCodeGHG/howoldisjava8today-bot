@@ -1,7 +1,7 @@
 name: "Docker Image"
 on:
   release:
-    types: [published]
+    types: [created]
 
 concurrency: release-docker-${{ github.ref }}
 
