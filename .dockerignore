@@ -1,0 +1,8 @@
+node_modules
+.editorconfig
+.gitignore
+.prettierignore
+LICENSE
+README.md
+renovate.json
+.github

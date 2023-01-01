@@ -2,8 +2,10 @@
   "name": "howoldisjava8today-bot",
   "version": "1.0.0",
   "private": "true",
+  "main": "dist/main.js",
   "scripts": {
     "start": "node --loader ts-node/esm ./src/main.ts",
+    "build": "tsc",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
