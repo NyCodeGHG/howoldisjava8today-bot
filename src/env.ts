@@ -5,22 +5,24 @@ config();
 
 // Environment variable validation
 const schema = z.object({
-  TWITTER_APP_KEY: z.string(),
-  TWITTER_APP_SECRET: z.string(),
-  TWITTER_ACCESS_TOKEN: z.string(),
-  TWITTER_ACCESS_TOKEN_SECRET: z.string(),
-  MASTODON_ACCESS_TOKEN: z.string(),
-  MASTODON_INSTANCE_URL: z.string(),
+  TWITTER_APP_KEY: z.string({
+    required_error: "TWITTER_APP_KEY environment variable is required"
+  }),
+  TWITTER_APP_SECRET: z.string({
+    required_error: "TWITTER_APP_KEY environment variable is required"
+  }),
+  TWITTER_ACCESS_TOKEN: z.string({
+    required_error: "TWITTER_ACCESS_TOKEN environment variable is required"
+  }),
+  TWITTER_ACCESS_TOKEN_SECRET: z.string({
+    required_error: "TWITTER_ACCESS_TOKEN_SECRET environment variable is required"
+  }),
+  MASTODON_ACCESS_TOKEN: z.string({
+    required_error: "MASTODON_ACCESS_TOKEN environment variable is required"
+  }),
+  MASTODON_INSTANCE_URL: z.string({
+    required_error: "MASTODON_INSTANCE_URL environment variable is required"
+  }),
 });
 
-const parsed = schema.safeParse(process.env);
-
-if (!parsed.success) {
-  console.error(
-    "Invalid environment variables:",
-    JSON.stringify(parsed.error.format(), null, 4)
-  );
-  process.exit(1);
-}
-
-export const env = parsed.data;
+export const env = schema.parse(process.env);
