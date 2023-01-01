@@ -12,4 +12,5 @@ jobs:
           release-type: node
           package-name: howoldisjava8today-bot
           token: ${{ secrets.GH_TOKEN }}
-
+          extra-files: |
+            manifests/cronjob.yaml
