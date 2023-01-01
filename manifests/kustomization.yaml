@@ -1,0 +1,5 @@
+resources:
+  - "cronjob.yaml"
+  - "ns.yaml"
+patchesStrategicMerge:
+  - "cronjob_env_patch.yaml"

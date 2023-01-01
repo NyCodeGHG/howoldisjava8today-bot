@@ -1,0 +1,36 @@
+name: "Kubernetes Manifests"
+on:
+  release:
+
+concurrency: release-manifests-${{ github.ref }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Docker Image
+    steps:
+      - name: Fetch Sources
+        uses: actions/checkout@v3
+      - name: Build Manifests
+        run: kustomize build manifests > manifests.yaml
+      - name: Upload Release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: manifests.yaml
+          append_body: true
+          body: |
+
+            # Installation
+            Install using the following kubectl command:
+
+            ```shell
+            kubectl apply -f https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/manifests.yaml
+            ```
+
+            Or use it in your own kustomization.yaml:
+            ```yaml
+            resources:
+              - "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/manifests.yaml"
+            # To change the namespace, comment out the following line
+            # namespace: howoldisjava8today-bot
+            ```

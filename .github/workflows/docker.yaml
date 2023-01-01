@@ -2,7 +2,7 @@ name: "Docker Image"
 on:
   release:
 
-concurrency: release-${{ github.ref }}
+concurrency: release-docker-${{ github.ref }}
 
 jobs:
   build:

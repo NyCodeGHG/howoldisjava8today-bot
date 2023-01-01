@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: howoldisjava8today-bot
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: bot
+              env:
+                - name: TWITTER_APP_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: platform-credentials
+                      key: TWITTER_APP_KEY
+                      optional: true
+                - name: TWITTER_APP_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: platform-credentials
+                      key: TWITTER_APP_SECRET
+                      optional: true
+                - name: TWITTER_ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: platform-credentials
+                      key: TWITTER_ACCESS_TOKEN
+                      optional: true
+                - name: TWITTER_ACCESS_TOKEN_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: platform-credentials
+                      key: TWITTER_ACCESS_TOKEN_SECRET
+                      optional: true
+                - name: MASTODON_ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: platform-credentials
+                      key: MASTODON_ACCESS_TOKEN
+                      optional: true
+                - name: MASTODON_INSTANCE_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: platform-credentials
+                      key: MASTODON_INSTANCE_URL
+                      optional: true

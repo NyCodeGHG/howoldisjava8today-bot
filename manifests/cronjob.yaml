@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: howoldisjava8today-bot
+  labels:
+    app.kubernetes.io/name: howoldisjava8today-bot
+spec:
+  schedule: "0 10 * * *"
+  timeZone: Europe/Berlin
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          automountServiceAccountToken: false
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 3000
+            fsGroup: 2000
+            runAsNonRoot: true
+          containers:
+            - name: bot
+              image: ghcr.io/nycodeghg/howoldisjava8today-bot:1.0.0 # x-release-please-version
+              imagePullPolicy: IfNotPresent
+              securityContext:
+                readOnlyRootFilesystem: true
+                runAsNonRoot: true
+                allowPrivilegeEscalation: false
+          restartPolicy: OnFailure
