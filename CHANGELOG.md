@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/NyCodeGHG/howoldisjava8today-bot/compare/v1.1.0...v1.1.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* change workflow type to created instead of published ([da07ccb](https://github.com/NyCodeGHG/howoldisjava8today-bot/commit/da07ccbd01cc09210efd44e4241f7f7805c2cf95))
+* Only run release workflows on published event type ([d0134f6](https://github.com/NyCodeGHG/howoldisjava8today-bot/commit/d0134f6787ff1e30b901f8158c262c41c6c91258))
+
 ## [1.1.0](https://github.com/NyCodeGHG/howoldisjava8today-bot/compare/v1.0.0...v1.1.0) (2023-01-01)
 
 
