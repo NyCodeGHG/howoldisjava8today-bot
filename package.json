@@ -14,7 +14,7 @@
   "dependencies": {
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
-    "masto": "^5.0.0",
+    "masto": "^6.0.0",
     "twitter-api-v2": "^1.12.9",
     "zod": "^3.20.2"
   },
