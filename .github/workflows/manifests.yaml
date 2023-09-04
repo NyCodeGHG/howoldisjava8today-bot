@@ -11,7 +11,7 @@ jobs:
     name: Build Kubernetes Manifests
     steps:
       - name: Fetch Sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build Manifests
         run: kustomize build manifests > manifests.yaml
       - name: Upload Release asset
