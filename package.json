@@ -19,7 +19,7 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.3",
+    "@tsconfig/node16": "^16.0.0",
     "@types/node": "^18.11.9",
     "@vitest/coverage-c8": "^0.28.0",
     "prettier": "^2.8.1",
